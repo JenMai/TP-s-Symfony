@@ -33,6 +33,7 @@ class WeaponUserController extends AbstractController
         if($weaponUserHandler->proceed() === true){
             return $weaponUserHandler->treat();
         }
+        
 
         return $this->render('weapon_user/new.html.twig', [
             'weapon_user' => $weaponUserHandler->getWeaponUser(),
