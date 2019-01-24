@@ -113,13 +113,13 @@ class LoadWeaponTest extends TestCase{
         $weaponUser2 = clone($weaponUser);
         $weaponUser2->setActive(false);
 
-        $weaponUser->setWeapon($weapon);
+        $weaponUser2->setWeapon($weapon);
 
         $loadWeapon = $this->initLoadWeapon([$weaponUser, $weaponUser1, $weaponUser2]);
 
-        $loadWeapon->load($weaponUser);
+        $loadWeapon->load($weaponUser2);
 
-        $this->assertTrue($weaponUser->getActive());
+        $this->assertTrue($weaponUser2->getActive());
     }
 
 }
