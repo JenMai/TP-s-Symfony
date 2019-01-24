@@ -6,5 +6,6 @@ security:
 #        in_memory:
 #            memory:
 #                users:
-#                    user@user.fr:#                        password: user@user.fr
-                                  #                        roles: 'ROLE_USER'
+#                    user@user.fr:
+#                        password: user@user.fr
+#                        roles: 'ROLE_USER'
