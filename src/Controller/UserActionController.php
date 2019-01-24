@@ -26,9 +26,11 @@ class UserActionController extends AbstractController
      */
     public function index(): Response
     {
+
         $em = $this->getDoctrine()->getManager();
 
         $weaponsUser = $em->getRepository(WeaponUser::class)->findBy(['user' => $this->getUser()]);
+        
 
         $users = $em->getRepository(User::class)->findAllPlayerAlive($this->getUser());
 
