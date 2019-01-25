@@ -18,6 +18,7 @@ h4{
 span.point{
     color: darkcyan;
     font-size: 20px;
+    padding-left: 10px;
 }
 span.pt{
     color: yellow;

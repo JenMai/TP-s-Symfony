@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\WeaponRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
  */
-class Weapon
+class Team
 {
     /**
      * @ORM\Id()
@@ -22,9 +22,9 @@ class Weapon
     private $name;
 
     /**
-     * @ORM\Column(type="decimal", precision=5, scale=2)
+     * @ORM\Column(type="string", length=255)
      */
-    private $damage;
+    private $flag;
 
     public function getId(): ?int
     {
@@ -43,20 +43,15 @@ class Weapon
         return $this;
     }
 
-    public function getDamage()
+    public function getFlag(): ?string
     {
-        return $this->damage;
+        return $this->flag;
     }
 
-    public function setDamage($damage): self
+    public function setFlag(string $flag): self
     {
-        $this->damage = $damage;
+        $this->flag = $flag;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }

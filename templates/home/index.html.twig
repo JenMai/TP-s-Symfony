@@ -5,44 +5,53 @@
 {% block body %}
 
     <div class="panel">
+<<<<<<< HEAD
         <h1 class="title">Tester son code</h1>
         <h2>Branch Testing de TPhello</h2>
 
+=======
+        <h1 class="title">TP Mid Saison</h1>
+        <h2>Gestion de pari sur des match <br />
+            <strong>Team</strong> : id, name<Br />
+            <strong>Game</strong> : id, TeamA , TeamB, scoreTeamA, scoreTeamB, date, rating ( par defaut : 2.0 )<Br />
+            <strong>Bet</strong> : id, User , game, scoreTeamA, scoreTeamB, date, amount <Br />
+        </h2>
+        <h4>
+            Attention : je veux 1 commit par question ex : git commit -am "question 2-a"<br />
+            Seul le code du commit sera interpreté pour vous corriger :)
+        </h4>
+>>>>>>> 46891d2ee4d6dc97a48b88c24d625c8fbb8073bd
     </div>
 
     <div class="panel">
-        <h2>composer require --dev symfony/phpunit-bridge</h2>
-        <h2>composer require --dev symfony/browser-kit symfony/css-selector</h2>
-        <h2>./bin/phpunit</h2>
+
+        <h3><span class="pt">1 - </span>Créer des fixtures : 4 x Utilisateur( dont 1 Admin ) ---- 6 x Equipe ---- 5 x Match<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">2-a - </span>Créer une contrainte pour scoreTeamA et scoreTeamB de Game et Bet sois compris entre 0 et 12 inclus<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">2-b - </span>Créer une contrainte de classe pour que le champ name de team sois unique !<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">3 - </span>Créer une contrainte de classe pour que teamA et teamB soient 2 equipes différentes<span class="point">1.5pt</span></h3>
+        <h3><span class="pt">4 - </span>Créer un BackOffice pour les ROLE_ADMIN pour gérér les Team et les Games ( Crud Team et Game + sécurisation)<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">5 - </span>Créer un formType TeamType qui liste les équipes par nom croissant<span class="point">1pt</span></h3>
+        <h3><span class="pt">6 - </span>Créer un formType ScoreType qui est une liste déroulante comprise entre 0 et 12<span class="point">1pt</span></h3>
+        <h3><span class="pt">7 - </span>Modifier la vue du formType ScoreType pour que un score de 0 est de couleur noir - entre 1 et 5 inclus Bleu - entre 6 et 9 inclus violet - entre 10 et 12 vert<span class="point">2.5pt</span></h3>
+        <h3><span class="pt">8-a - </span>Créer une page qui liste tous les matchs et toutes leurs informations (  action et vue  sauf ID )<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">8-b - </span>Créer une page qui show qui détail les information du match ( action et vue )<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">8-c - </span>Si un utlisateur est connecté, il à un bouton "parier" à cotér de chaque match<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">9-a - </span>Créer les actions et le formulaire pour créer/modifier le pari de l'utilisateur connecté( Seul les champs des scores et amount sont modifiables/visibles )<span class="point">3pt</span></h3>
+        <h3><span class="pt">9-b - </span>Dans la page de listing des matchs si l'utilisateur à déja parié le bouton parier est remplacé par "mettre à jours mon pari"<span class="point">1pt</span></h3>
+        <h3><span class="pt">10-a - </span>Sur cette meme page ajouter un bouton "voir mon pari" qui redirige vers ma page show du BET ( création de l'action et de la vue associé)<span class="point">0.5pt</span></h3>
+        <h3><span class="pt">10-b - </span>Créer le voter pour autoriser seulement l'utilisateur qui a parié à voir son pari et sécurisé le site ( controller/vue) <span class="point">2pt</span></h3>
+        <h3><span class="pt">11-a - </span>Créer un service qui calcule les gains potentiels de l'utilisateur sur chaque match<span class="point">3pt</span><br />
+            Si l'utilisateur à la bonne issue du match ratio de 1<br />
+            Si l'utilisateur à le score exacte le ratio est de 3<br />
+            Calcul Gain: Amount * Rating * ratio<br />
+        </h3>
+        <h3><span class="pt">11-b - </span>Afficher le gain ( en vert )ou la perte ( en rouge ) sur la page de detail du match <span class="point">1pt</span></h3>
+        <h3>
+            <span class="pt">12 - </span>Tester le service qui calcul les gains<span class="point">3pt</span>
+        </h3>
+        <h3>
+            <span class="pt">Bonus - </span>Respect des bonnes pratiques ( naming, ...) <span class="point">2pt</span>
+        </h3>
     </div>
 
-    <div class="panel">
-        <h2>Le handler ou comment enlever le code du controler</h2>
-        <h2>Lancer les test au commit</h2>
-        <h2>Tester son code</h2>
-    </div>
-
-    <div class="panel">
-        <h2>Tester ses services !</h2>
-        <h2>Unload weapon</h2>
-        <h2>Heal user</h2>
-        <h2>Shoot</h2>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
-        <br/>
-        <br/>
-        <br/>
-    </div>
 {% endblock %}

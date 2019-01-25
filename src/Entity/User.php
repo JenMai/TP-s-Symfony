@@ -11,8 +11,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
-    const HEALT = 1000;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -50,11 +48,6 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $enabled;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $health = self::HEALT;
 
     /**
      * @var string The hashed password
@@ -169,24 +162,6 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * @return int
-     */
-    public function getHealth(): int
-    {
-        return $this->health;
-    }
-
-    /**
-     * @param int $health
-     */
-    public function setHealth($health): self
-    {
-        $this->health = $health;
-
-        return $this;
     }
 
     /**
