@@ -18,7 +18,7 @@ class GameType extends AbstractType
             ->add('date')
             ->add('rating')
             ->add('teamA', TeamTypeType::class)
-            ->add('teamB', TeamTypeTType::class)
+            ->add('teamB', TeamTypeType::class)
         ;
     }
 
