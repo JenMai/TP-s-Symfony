@@ -28,9 +28,10 @@
                 <td>{{ game.rating }}</td>
                 <td>
                     {% if is_granted('ROLE_USER') %}
+                        <a href="{{ path('match_show', {'id': game.id}) }}">voir</a>
                         <a href="{{ path('match_bet') }}">parier</a>
                     {% else %}
-                        Veuillez vous connecter
+                        Veuillez vous connecter pour parier
                     {% endif %}
 
                 </td>

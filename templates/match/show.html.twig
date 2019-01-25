@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Game{% endblock %}
+
+{% block body %}
+    <h1>Game {{ game.teamA.name }} - {{ game.teamB.name }}</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ game.id }}</td>
+        </tr>
+        <tr>
+            <th>Team A</th>
+            <td>{{ game.teamA.name }}</td>
+        </tr>
+        <tr>
+            <th>Team B</th>
+            <td>{{ game.teamB.name }}</td>
+        </tr>
+        <tr>
+            <th>ScoreTeamA</th>
+            <td>{{ game.scoreTeamA }}</td>
+        </tr>
+        <tr>
+            <th>ScoreTeamB</th>
+            <td>{{ game.scoreTeamB }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ game.date ? game.date|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Rating</th>
+            <td>{{ game.rating }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('match_bet') }}">parier</a>
+    {% else %}
+        Veuillez vous connecter pour parier
+    {% endif %}
+
+
+    {{ include('game/_delete_form.html.twig') }}
+{% endblock %}

@@ -33,4 +33,14 @@ class MatchController extends AbstractController
     {
         return $this->render('match/bet.html.twig');
     }
+
+    /**
+     * @Route("/{id}", name="match_show", methods={"GET"})
+     */
+    public function show(Game $game): Response
+    {
+        return $this->render('match/show.html.twig', [
+            'game' => $game,
+        ]);
+    }
 }
