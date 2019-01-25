@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Game;
+use App\Form\Type\TeamTypeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,8 +17,8 @@ class GameType extends AbstractType
             ->add('scoreTeamB')
             ->add('date')
             ->add('rating')
-            ->add('teamA')
-            ->add('teamB')
+            ->add('teamA', TeamTypeType::class)
+            ->add('teamB', TeamTypeTType::class)
         ;
     }
 
