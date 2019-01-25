@@ -20,7 +20,7 @@ class TeamTypeType extends AbstractType
                         ->orderBy('t.name', 'DESC');
                 },
                 'choice_label' => 'name',
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

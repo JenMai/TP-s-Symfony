@@ -14,7 +14,7 @@ class TeamType extends AbstractType
     {
         $builder
             ->add('name')
-            ->('tag')
+            ->add('flag')
         ;
     }
 
