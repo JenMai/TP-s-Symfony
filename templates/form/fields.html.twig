@@ -1,2 +1,36 @@
 {% extends "form_div_layout.html.twig" %}
 
+{% block roles_widget %}
+    {{- block('form_widget') -}}
+
+{% endblock roles_widget %}
+
+{% block score_widget %}
+
+    {{- block('form') -}}
+
+    <div id="color-score">
+        Mon beau score
+    </div>
+
+    <script>
+        function changeColor(value){
+            console.log(value);
+            let color = '#FFFFFF';
+
+            if (value == 0) {
+                color = "black";
+            } else if ((value >= 1) && (value <= 5) ) {
+                color = "blue";
+            } else if ((value >= 6) && (value <= 9) ) {
+                color = "purple";
+            } else if ((value >= 10) && (value <= 12) ) {
+                color = "green";
+            }
+
+            document.getElementById('color-score').style.backgroundColor = color;
+        }
+    </script>
+
+{% endblock score_widget %}
+
