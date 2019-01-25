@@ -19,6 +19,7 @@ class TeamType extends AbstractType
                     return $er->createQueryBuilder('t')
                         ->orderBy('t.name', 'DESC');
                 },
+                'choice_label' => 'name',
         ;
     }
 
