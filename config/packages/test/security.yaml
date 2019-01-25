@@ -2,6 +2,7 @@ security:
     firewalls:
         main:
             http_basic: ~
+            
 #    providers:
 #        in_memory:
 #            memory:
