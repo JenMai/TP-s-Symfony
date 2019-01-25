@@ -24,4 +24,13 @@ class MatchController extends AbstractController
             'games' => $gameRepository->findAll(),
         ]);
     }
+
+    //TODO
+    /**
+     * @Route("/", name="match_bet", methods={"GET"})
+     */
+    public function bet(GameRepository $gameRepository): Response
+    {
+        return $this->render('match/bet.html.twig');
+    }
 }

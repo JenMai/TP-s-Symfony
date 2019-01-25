@@ -28,7 +28,7 @@
                 <td>{{ game.rating }}</td>
                 <td>
                     {% if is_granted('ROLE_USER') %}
-                    <a href="#">TODO</a>
+                        <a href="{{ path('match_bet') }}">parier</a>
                     {% else %}
                         Veuillez vous connecter
                     {% endif %}
