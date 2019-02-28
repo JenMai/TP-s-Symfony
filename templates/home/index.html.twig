@@ -5,40 +5,35 @@
 {% block body %}
 
     <div class="panel">
-        <h2>Finir le test du service de calcul de score !</h2>
-        <h2>Correction !</h2>
+        <h2>Les events  => listener - dispatcher</h2>
+        <h2>Qu'est ce que c'est ?</h2>
+        <h3>Différence :</h3>
+        <h3>Les listeners peuvent être activé/désactivé dans la config. </h3>
+        <h3>Les subscribers ont toute la logique dans leur classe, ils sont plus flexible</h3>
+        <h3>Désavantages des subscribers , c'est qui sont tous chargés en cache alors que le listener est chargé lors de son appel.</h3>
     </div>
 
     <div class="panel">
-        <h2>Aujourd'hui c'est vendredi donc c'est en mode chill ! => les traductions</h2>
-        <h3>
-            composer require symfony/translation
-        </h3>
-        <h2>{{ 'totolaricot'|trans }}</h2>
-        <h2>{% trans %}totolaricot{% endtrans %}</h2>
-        <h3>php bin/console c:c</h3>
-        <h3>je suis roro : {% trans with {'%name%': 'Zimzim'} %}admin.roro{% endtrans %}</h3>
-        <h3>je suis roro toujours english: {% trans with {'%name%': 'Zimzim'} into 'en' %}admin.roro{% endtrans %}</h3>
-        <h2>{{ roro }}</h2>
-        <h3>
-            {% set toto =3 %}
-            {% transchoice toto %}
-            {0} pas de toto|{1} 1 toto|]1,Inf[ il y a %count% de toto
-            {% endtranschoice %}
-        </h3>
-        <a href="{{ path('home_index_language', {'_locale': 'en'}) }}">Link to english</a> ----
-        <a href="{{ path('home_index_language', {'_locale': 'fr'}) }}">Lien vers france</a> ----
-        <a href="{{ path('home_index_language.en') }}">Link to english</a> ----
-        <a href="{{ path('home_index_language.fr') }}">Lien vers france</a>
+        <h2>Listener</h2>
+        <h2>namespace =  App\EventListener</h2>
+        <h2>Exemple : <a href="https://symfony.com/doc/current/reference/events.html" target="_blank">ici</a></h2>
+        <h2>Exemple concret : User Create</h2>
     </div>
 
     <div class="panel">
-        <h3>TP d'aujourdui</h3>
-        <h2>Allez ici <a href="{{ path('home_team') }}">Mes matchs</a></h2>
-        <h2>1 - Lors du click sur "Créer un match pour cette équipe", modifier le formulaire pour que seul le choix de l'équipe B sois disponible et setter l'équipe clicker en tans que equipe A => ( modification du form )</h2>
-        <h2>2 - dans ce "même formulaire" modifier le choix de l'equipe B pour qu'elle ne puisse pas être égale à l'équipe A</h2>
-        <br /><br />
-        <br /> <br /><br /><br /><br /><br /><br /><br />
+        <h2>Subscriber</h2>
+        <h2>namespace =  App\EventSubscriber</h2>
+        <h2>Exemple UserEdit et login</h2>
+    </div>
+
+    <div class="panel">
+        <h2>Tp du jour</h2>
+        <h2>Voyage vers l'infini et au delà <a href="{{ path('home_game') }}">Game</a></h2>
+        <h2>1 - Créer une contrainte de validation pour ActionUser:direction ( LEFT, TOP, RIGHT, BOTTOM )</h2>
+        <h2>2 - Créer un FormType ActionUser:direction en RADIO ( LEFT, TOP, RIGHT, BOTTOM )</h2>
+        <h2>3 - Sécuriser l'action home_game pour ROLE_USER</h2>
+        <h2>4 - Gérer l'action game pour déplacer l'utilisateur avec le principe des listeners ( Edit l'User et loguer l'ActionUser )</h2>
+        <h2>5 - Gérer l'action pour reset l'utilisateur avec le principe des subscribers  ( Si utilisateur à plus de 10 mouvements on le remet sur les coordonnées 0,0 et on supprime l'historique des actions !  )</h2>
     </div>
 
 {% endblock %}

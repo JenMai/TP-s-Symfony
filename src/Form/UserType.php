@@ -32,8 +32,7 @@ class UserType extends AbstractType
         $builder
             ->add('email')
             ->add('plainPassword')
-            ->add('roles', RolesType::class)
-            ->add('submit', SubmitType::class, ['label_format' => 'Registration']);
+            ->add('roles', RolesType::class);
 
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
@@ -47,9 +46,11 @@ class UserType extends AbstractType
         $form = $event->getForm();
         $user = $event->getData();
 
-        $user->setEnabled(true);
-
-
+        if($user->getId() === null){
+            $form->add('submit', SubmitType::class, ['label_format' => 'Créer']);
+        }else{
+            $form->add('submit', SubmitType::class, ['label_format' => 'Editer']);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)

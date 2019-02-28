@@ -47,7 +47,17 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $enabled;
+    private $enabled = false;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $positionX;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $positionY;
 
     /**
      * @var string The hashed password
@@ -203,5 +213,41 @@ class User implements UserInterface
     public function __toString()
     {
        return $this->email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPositionX()
+    {
+        return $this->positionX;
+    }
+
+    /**
+     * @param mixed $positionX
+     */
+    public function setPositionX(int $positionX)
+    {
+        $this->positionX = $positionX;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPositionY()
+    {
+        return $this->positionY;
+    }
+
+    /**
+     * @param mixed $positionY
+     */
+    public function setPositionY(int $positionY)
+    {
+        $this->positionY = $positionY;
+
+        return $this;
     }
 }

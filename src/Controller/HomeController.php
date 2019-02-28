@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\ActionUser;
 use App\Repository\GameRepository;
 use App\Repository\TeamRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,6 +14,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 class HomeController extends AbstractController
 {
     /**
@@ -20,29 +24,37 @@ class HomeController extends AbstractController
      */
     public function index(Request $request, TranslatorInterface $translator, SessionInterface $session): Response
     {
-        $session->set('_locale','en');
-
-        $name = "ZimZoum";
-        return $this->render('home/index.html.twig', ['roro' => $translator->trans('admin.toto',['%name%' => $name])]);
+        return $this->render('home/index.html.twig');
     }
 
     /**
-     * @Route({"fr": "/maison", "en": "/house"}, name="home_index_language", methods="GET")
+     * @Route("/game", name="home_game", methods="GET|POST")
      */
-    public function indexLanguage(TranslatorInterface $translator): Response
-    {
-        $name = "ZimZoum";
-        return $this->render('home/index.html.twig', ['roro' => $translator->trans('admin.toto',['%name%' => $name])]);
+    public function game(Request $request){
+
+        $builder = $this->createFormBuilder();
+        $builder->add('action', ChoiceType::class, ['choices' => ['LEFT' => 'LEFT', 'TOP' => 'TOP', 'RIGHT' => 'RIGHT', 'BOTTOM' => 'BOTTOM']]);
+        $builder->add('submit', SubmitType::class, ['label' => 'Valid direction']);
+        $form = $builder->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            //@todo
+
+            return $this->redirectToRoute('home_game'); //@findMe -  pourquoi redirect ? = 1pt bonus
+        }
+        return $this->render('home/game.html.twig', ['form' => $form->createView()]);
     }
 
-
     /**
-     * @Route("/teams", name="home_team", methods={"GET"})
+     * @Route("/reset", name="home_reset", methods="GET|POST")
      */
-    public function homeTeam(TeamRepository $teamRepository): Response
-    {
-        return $this->render('home/teams.html.twig', [
-            'teams' => $teamRepository->findBy([], ['name' => 'ASC']),
-        ]);
+    public function reset(Request $request){
+
+        //@todo
+
+        return $this->redirectToRoute('home_game');
     }
 }
