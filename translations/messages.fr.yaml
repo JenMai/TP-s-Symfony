@@ -2,3 +2,6 @@ totolaricot: "Poullloppp Poullloppp"
 admin:
     toto: "roro %name% roro"
     roro: "toto %name% toto"
+game:
+    new:
+        choiceopponent: "Quel adversaire pour %team% , à vous de choisir ?"

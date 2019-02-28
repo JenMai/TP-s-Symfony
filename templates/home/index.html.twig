@@ -21,7 +21,7 @@
         <h3>je suis roro toujours english: {% trans with {'%name%': 'Zimzim'} into 'en' %}admin.roro{% endtrans %}</h3>
         <h2>{{ roro }}</h2>
         <h3>
-            {% set toto = 1 %}
+            {% set toto =3 %}
             {% transchoice toto %}
             {0} pas de toto|{1} 1 toto|]1,Inf[ il y a %count% de toto
             {% endtranschoice %}
@@ -36,7 +36,9 @@
         <h3>TP d'aujourdui</h3>
         <h2>Allez ici <a href="{{ path('home_team') }}">Mes matchs</a></h2>
         <h2>1 - Lors du click sur "Créer un match pour cette équipe", modifier le formulaire pour que seul le choix de l'équipe B sois disponible et setter l'équipe clicker en tans que equipe A => ( modification du form )</h2>
-        <h2>2 - dans ce même formulaire modifier le choix de l'equipe B pour qu'elle ne puisse pas être égale à l'équipe A => création/Modification du formType team</h2>
+        <h2>2 - dans ce "même formulaire" modifier le choix de l'equipe B pour qu'elle ne puisse pas être égale à l'équipe A</h2>
+        <br /><br />
+        <br /> <br /><br /><br /><br /><br /><br /><br />
     </div>
 
 {% endblock %}

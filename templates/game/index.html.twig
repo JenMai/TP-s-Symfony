@@ -9,6 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>TeamA</th>
+                <th>TeamB</th>
                 <th>ScoreTeamA</th>
                 <th>ScoreTeamB</th>
                 <th>Date</th>
@@ -20,6 +22,8 @@
         {% for game in games %}
             <tr>
                 <td>{{ game.id }}</td>
+                <td>{{ game.teamA }}</td>
+                <td>{{ game.teamB }}</td>
                 <td>{{ game.scoreTeamA }}</td>
                 <td>{{ game.scoreTeamB }}</td>
                 <td>{{ game.date ? game.date|date('Y-m-d H:i:s') : '' }}</td>

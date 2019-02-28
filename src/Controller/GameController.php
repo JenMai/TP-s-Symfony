@@ -27,12 +27,13 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/new/{team}", name="game_new", methods={"GET","POST"}, defaults={"team" = null})
+     * @Route("/new/{team}", name="game_new", methods={"GET","POST"}, defaults={"team"=null})
      */
     public function new(Request $request, Team $team = null): Response
     {
         $game = new Game();
         $form = $this->createForm(GameType::class, $game, ['team' => $team]);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,12 +41,17 @@ class GameController extends AbstractController
             $entityManager->persist($game);
             $entityManager->flush();
 
-            return $this->redirectToRoute('game_index');
+            if($team instanceOf Team){
+                return $this->redirectToRoute('home_team');
+            }else{
+                return $this->redirectToRoute('game_index');
+            }
         }
 
         return $this->render('game/new.html.twig', [
             'game' => $game,
             'form' => $form->createView(),
+            'team' => $team
         ]);
     }
 
