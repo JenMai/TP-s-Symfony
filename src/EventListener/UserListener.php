@@ -13,11 +13,13 @@ class UserListener
 {
     private $entityManager;
     private $token;
+    private $convertAction;
 
-    public function __construct(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage)
+    public function __construct(EntityManagerInterface $entityManager, TokenStorageInterface $tokenStorage, ConvertAction $convertAction)
     {
         $this->entityManager = $entityManager;
         $this->token = $tokenStorage->getToken();
+        $this->convertAction = $convertAction;
     }
 
     public function onUserCreateActive(UserEvent  $event)
@@ -36,8 +38,8 @@ class UserListener
     public function onUserAction(ActionEvent $event){
 
         $user = $this->token->getUser();
-        $user->setPositionX($user->getPositionX() + ConvertAction::convertDirectionToX($event->getAction()));
-        $user->setPositionY($user->getPositionY() + ConvertAction::convertDirectionToY($event->getAction()));
+        $user->setPositionX($user->getPositionX() + $this->convertAction->convertDirectionToX($event->getAction()));
+        $user->setPositionY($user->getPositionY() + $this->convertAction->convertDirectionToY($event->getAction()));
 
         $this->entityManager->flush();
 

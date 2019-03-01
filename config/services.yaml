@@ -48,4 +48,5 @@ services:
 
     App\EventListener\ActionUserListener:
         tags:
-            - { name: kernel.event_listener, event: user.action, priority: 128 }
+            - { name: kernel.event_listener, event: user.action, method: 'onUserAction', priority: 128 }
+            - { name: kernel.event_listener, event: user.action, method: 'onUserPosition', priority: 2048 }

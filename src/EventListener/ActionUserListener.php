@@ -32,4 +32,20 @@ class ActionUserListener
         $this->entityManager->persist($actionUser);
         $this->entityManager->flush();
     }
+
+    //nouveau listener
+    public function onUserPosition(ActionEvent $event){
+        $user = $this->token->getUser();
+        $positionX = $user->getPositionX();
+        $positionY = $user->getPositionY();
+
+        if(($positionX === 0) && ($event->getAction() === "LEFT")){
+            $event->stopPropagation();
+        }
+
+        if(($positionY === 0) && ($event->getAction() === "TOP")){
+            $event->stopPropagation();
+        }
+
+    }
 }
