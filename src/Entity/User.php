@@ -52,12 +52,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="integer")
      */
-    private $positionX;
+    private $positionX = 0;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $positionY;
+    private $positionY = 0;
 
     /**
      * @var string The hashed password

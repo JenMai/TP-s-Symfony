@@ -3,6 +3,7 @@
 namespace App\EventListener;
 
 
+use App\Event\ChoiceEvent;
 use App\Event\UserEvent;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -10,10 +11,13 @@ use Doctrine\ORM\EntityManagerInterface;
 class UserListener
 {
     private $entityManager;
+    private $tokenStorage;
+
 
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
+        $this->tokenStorage = $tokenStorage;
     }
 
     public function onUserCreateActive(UserEvent  $event)
@@ -28,4 +32,5 @@ class UserListener
         $this->entityManager->persist($event->getUser());
         $this->entityManager->flush();
     }
+
 }

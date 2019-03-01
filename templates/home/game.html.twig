@@ -11,4 +11,10 @@
 
    {{ form(form) }}
 
+    {% if logActionUsers is defined %}
+        {% for logActionUser in logActionUsers %}
+            <p>{{ logActionUser.createdAt|date('D/m/Y h:m:s') }} - {{ logActionUser.user }} - {{ logActionUser.direction }} - ({{ logActionUser.positionX }} , {{ logActionUser.positionY }})</p>
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}
