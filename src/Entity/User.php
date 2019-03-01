@@ -52,11 +52,13 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="integer")
      */
+
     private $positionX = 0;
 
     /**
      * @ORM\Column(type="integer")
      */
+
     private $positionY = 0;
 
     /**

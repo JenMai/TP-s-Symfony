@@ -4,7 +4,7 @@ namespace App\EventListener;
 
 
 use App\Event\UserEvent;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class LoginListener
