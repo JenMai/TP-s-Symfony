@@ -33,7 +33,7 @@ class ActionUserListener
         $this->entityManager->flush();
     }
 
-    //nouveau listener
+    /*//nouveau listener
     public function onUserPosition(ActionEvent $event){
         $user = $this->token->getUser();
         $positionX = $user->getPositionX();
@@ -47,5 +47,5 @@ class ActionUserListener
             $event->stopPropagation();
         }
 
-    }
+    }*/
 }

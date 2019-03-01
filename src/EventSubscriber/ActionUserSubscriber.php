@@ -3,6 +3,7 @@
 namespace App\EventSubscriber;
 
 use App\Entity\ActionUser;
+use App\Event\ActionEvent;
 use App\Event\AppEvent;
 use App\Event\UserEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -29,7 +30,8 @@ class ActionUserSubscriber implements EventSubscriberInterface{
     public static function getSubscribedEvents()
     {
         return [
-            AppEvent::UserReset => ['resetAllUserAction', 128]
+            AppEvent::UserReset => ['resetAllUserAction', 128],
+            AppEvent::DirectionCancel => ['onUserPosition', 2048]
         ];
     }
 
@@ -40,6 +42,22 @@ class ActionUserSubscriber implements EventSubscriberInterface{
             $this->entityManager->remove($actionUser);
         }
         $this->entityManager->flush();
+
+    }
+
+    //nouveau listener
+    public function onUserPosition(ActionEvent $event){
+        $user = $this->token->getUser();
+        $positionX = $user->getPositionX();
+        $positionY = $user->getPositionY();
+
+        if(($positionX === 0) && ($event->getAction() === "LEFT")){
+            $event->stopPropagation();
+        }
+
+        if(($positionY === 0) && ($event->getAction() === "TOP")){
+            $event->stopPropagation();
+        }
 
     }
 }

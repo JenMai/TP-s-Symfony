@@ -50,6 +50,7 @@ class HomeController extends AbstractController
             $data = $form->getData();
             $event->setAction($data['action']);
             $dispatcher->dispatch('user.action', $event);
+            $dispatcher->dispatch('direction.cancel', $event);
 
             return $this->redirectToRoute('home_game');
         }
