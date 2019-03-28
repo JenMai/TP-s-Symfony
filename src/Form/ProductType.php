@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -24,5 +25,7 @@ class ProductType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Product::class,
         ]);
+
+
     }
 }
