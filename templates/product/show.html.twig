@@ -8,6 +8,10 @@
     <table class="table">
         <tbody>
             <tr>
+                <th>Picture</th>
+                <td><img src="{{ asset('uploads/products/pictures/' ~ product.picture) }}"/></td>
+            </tr>
+            <tr>
                 <th>Id</th>
                 <td>{{ product.id }}</td>
             </tr>
