@@ -20,8 +20,10 @@
                 <td>{{ character.id }}</td>
                 <td>{{ character.name }}</td>
                 <td>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('characters_show', {'id': character.id}) }}">show</a>
                     <a href="{{ path('characters_edit', {'id': character.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -93,9 +95,10 @@
                 <td>{{ game.assassination }}</td>
                 <td>{{ game.reanimation }}</td>
                 <td>{{ game.damage }}</td>
-                <td>
+                <td>{% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('game_show', {'id': game.id}) }}">show</a>
                     <a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
+                    {% endif %}
                     <a href="#">@Hackme - Shoot</a>
                     <a href="#">@Hackme - End game</a>
                 </td>
