@@ -109,7 +109,7 @@
                     <a href="{{ path('game_show', {'id': game.id}) }}">show</a>
                     <a href="{{ path('game_edit', {'id': game.id}) }}">edit</a>
                     {% endif %}
-                    <a href="#">@Hackme - Shoot</a>
+                    <a href="{{ path('action_user_shoot', {'id': game.id}) }}">@Hackme - Shoot</a>
                     <a href="#">@Hackme - End game</a>
                 </td>
             </tr>
