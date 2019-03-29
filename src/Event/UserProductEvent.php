@@ -3,10 +3,12 @@ namespace App\Event;
 use App\Entity\UserProduct;
 use Symfony\Component\EventDispatcher\Event;
 class UserProductEvent extends Event{
+
     /**
      * @var UserProduct
      */
     private $userProduct;
+    
     /**
      * @return UserProduct
      */
@@ -14,6 +16,7 @@ class UserProductEvent extends Event{
     {
         return $this->userProduct;
     }
+
     /**
      * @param UserProduct $userProduct
      */
