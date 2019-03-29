@@ -26,7 +26,7 @@ class UserCharactersController extends AbstractController
         return $this->render('user_characters/index.html.twig', [
             'games' => $gameRepository->findAll(),
             'user_characters' => $userCharactersRepository->findBy(['user' => $this->getUser()]),
-            'characters' => $charactersRepository->findAll()
+            'characters' => $charactersRepository->findBy([], ['name' => 'ASC', 'role' => 'ASC'])
         ]);
     }
 
