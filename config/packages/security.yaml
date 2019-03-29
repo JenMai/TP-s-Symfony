@@ -47,7 +47,7 @@ security:
 
     access_control:
         - { path: ^/role/, roles: ROLE_ADMIN } # Acces permis si plus bas ??
-        - { path: ^/, roles: ROLE_USER }
+        #- { path: ^/, roles: ROLE_USER }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user, roles: ROLE_USER }
         - { path: ^/user, roles: ROLE_ADMIN }

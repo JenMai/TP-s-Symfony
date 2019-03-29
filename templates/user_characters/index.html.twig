@@ -12,6 +12,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Role</th>
+            <th>Image</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -21,6 +22,7 @@
                 <td>{{ character.id }}</td>
                 <td>{{ character.name }}</td>
                 <td>{{ character.role }}</td>
+                <td><img src="{{ asset('uploads/characters/pictures/' ~ character.picture) }}"/></td>
                 <td>
                     {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('characters_show', {'id': character.id}) }}">show</a>
@@ -48,6 +50,7 @@
                 <th>Favorite</th>
                 <th>Character Name</th>
                 <th>Role</th>
+                <th>Image<th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -60,6 +63,7 @@
                 <td>{{ user_character.favorite ? 'Yes' : 'No' }}</td>
                 <td>{{ user_character.characters.name }}</td>
                 <td>{{ user_character.characters.role }}</td>
+                <td><img src="{{ asset('uploads/characters/pictures/' ~ user_character.characters.picture) }}"/></td>
                 <td>
                     <a href="{{ path('user_characters_show', {'id': user_character.id}) }}">show</a>
                     <a href="{{ path('user_characters_edit', {'id': user_character.id}) }}">edit</a>

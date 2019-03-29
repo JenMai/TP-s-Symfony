@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CharactersRepository")
@@ -26,6 +27,13 @@ class Characters
      * @ORM\JoinColumn(nullable=false)
      */
     private $role;
+
+     /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\File(mimeTypes={ "image/jpeg" })
+     */
+    private $picture;
 
     public function getId(): ?int
     {
@@ -52,6 +60,18 @@ class Characters
     public function setRole(?Role $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
 
         return $this;
     }
