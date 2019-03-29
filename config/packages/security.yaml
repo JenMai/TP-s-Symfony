@@ -46,11 +46,11 @@ security:
                 target: home_index
 
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/role/, roles: ROLE_ADMIN } # Acces permis si plus bas ??
         - { path: ^/, roles: ROLE_USER }
-        - { path: ^/user-characters, roles: ROLE_USER }
-        - { path: ^/game, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user, roles: ROLE_USER }
         - { path: ^/user, roles: ROLE_ADMIN }
-        - { path: ^/role, roles: ROLE_ADMIN }]
+        - { path: ^/game, roles: ROLE_USER }
+        - { path: ^/user-characters, roles: ROLE_USER }
         - { path: ^/character, roles: ROLE_ADMIN }
